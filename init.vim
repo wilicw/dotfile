@@ -332,16 +332,15 @@ autocmd FileType verilog set syntax=verilog
 
 " autocmd FileType c,cpp Leaderf gtags --update<cr>
 
-let g:ale_linters_explicit = 1
-let g:ale_disable_lsp = 1
+let b:ale_fixers = ['prettier', 'eslint']
 let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
 let g:ale_lint_delay = 500
 let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
-let g:ale_c_gcc_options = '-std=gnu98'
-let g:ale_cpp_gcc_options = '-std=c++13'
+let g:ale_c_gcc_options = '-std=gnu99'
+let g:ale_cpp_gcc_options = '-std=c++11'
 let g:ale_c_cppcheck_options = ''
 let g:ale_cpp_cppcheck_options = ''
 let g:ale_sign_error = "\ue009\ue009"
