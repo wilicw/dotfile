@@ -114,6 +114,8 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/todo-comments.nvim'
 Plug 'bfrg/vim-cpp-modern'
+Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()
 
 set termguicolors
@@ -407,6 +409,10 @@ require'nvim-treesitter.configs'.setup {
         enable = true
         }
     }
+EOF
+
+lua <<EOF
+require("nvim-tree").setup()
 EOF
 
 let g:OmniSharp_selector_findusages = 'fzf'
