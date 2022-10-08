@@ -60,8 +60,8 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<cr><cr>
 
 " Autocomand to remember las editing position
 augroup vimrc-remember-cursor-position
-    autocmd!
-    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  autocmd!
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
 call plug#begin('~/.vim/plugged')
@@ -186,11 +186,11 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 augroup mygroup
-    autocmd!
-    " Setup formatexpr specified filetype(s).
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder.
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.
@@ -260,7 +260,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
+  return get(b:, 'coc_current_function', '')
 endfunction
 let g:coc_global_extensions = ['coc-vimlsp']
 
@@ -292,19 +292,19 @@ let g:fzf_layout = { 'window': '10new' }
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
 let g:fzf_colors =
-            \ { 'fg':      ['fg', 'Normal'],
-            \   'bg':      ['bg', 'Normal'],
-            \   'hl':      ['fg', 'Comment'],
-            \   'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-            \   'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-            \   'hl+':     ['fg', 'Statement'],
-            \   'info':    ['fg', 'PreProc'],
-            \   'border':  ['fg', 'Ignore'],
-            \   'prompt':  ['fg', 'Conditional'],
-            \   'pointer': ['fg', 'Exception'],
-            \   'marker':  ['fg', 'Keyword'],
-            \   'spinner': ['fg', 'Label'],
-            \   'header':  ['fg', 'Comment'] }
+      \ { 'fg':      ['fg', 'Normal'],
+      \   'bg':      ['bg', 'Normal'],
+      \   'hl':      ['fg', 'Comment'],
+      \   'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \   'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \   'hl+':     ['fg', 'Statement'],
+      \   'info':    ['fg', 'PreProc'],
+      \   'border':  ['fg', 'Ignore'],
+      \   'prompt':  ['fg', 'Conditional'],
+      \   'pointer': ['fg', 'Exception'],
+      \   'marker':  ['fg', 'Keyword'],
+      \   'spinner': ['fg', 'Label'],
+      \   'header':  ['fg', 'Comment'] }
 
 set laststatus=2
 
@@ -334,7 +334,11 @@ autocmd FileType verilog set syntax=verilog
 
 " autocmd FileType c,cpp Leaderf gtags --update<cr>
 
-let b:ale_fixers = ['prettier', 'eslint']
+let g:ale_fixers = {'javascript': ['eslint'], 'typescript': ['eslint'], 'typescriptreact': ['eslint']}
+let g:ale_sign_error = 'X'
+let g:ale_sign_warning = '!!'
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_enter = 1
 let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
 let g:ale_lint_delay = 500
@@ -387,29 +391,29 @@ nnoremap <Leader>/ <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find
 lua <<EOF
 require("telescope").load_extension "file_browser"
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = "all",
-    ignore_install = { "phpdoc" },
-    highlight = {
-        enable = true,
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
-        },
+  ensure_installed = "all",
+  ignore_install = { "phpdoc" },
+  highlight = {
+    enable = true,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+    },
     incremental_selection = {
-        enable = true,
-        keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
-            },
+      enable = true,
+      keymaps = {
+        init_selection = "gnn",
+        node_incremental = "grn",
+        scope_incremental = "grc",
+        node_decremental = "grm",
         },
-    indent = {
-        enable = true
+        },
+        indent = {
+          enable = true
         }
-    }
+        }
 EOF
 
 lua <<EOF
