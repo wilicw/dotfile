@@ -269,12 +269,8 @@ let g:indentLine_setColors = 0
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
 
-" map to <Leader>cf in C++ code
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>c :<C-u>ClangFormat<cr>
+" Format code
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>c :ClangFormat<cr>
-" if you install vim-operator-user
-autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
-" Format on save
 nnoremap <leader>c :Autoformat<cr>
 
 " Default fzf layout
