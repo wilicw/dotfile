@@ -95,17 +95,18 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'enricobacis/vim-airline-clock'
 " colorscheme
-Plug 'ayu-theme/ayu-vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'glepnir/zephyr-nvim'
+" Plug 'ayu-theme/ayu-vim'
 " Plug 'wadackel/vim-dogrun'
 " Plug 'rafamadriz/neon'
-Plug 'phanviet/vim-monokai-pro'
+" Plug 'phanviet/vim-monokai-pro'
 
 " Plug 'github/copilot.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'psliwka/vim-smoothie'
 Plug 'mhinz/vim-startify'
 Plug 'sainnhe/gruvbox-material'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'rhysd/vim-clang-format'
@@ -125,7 +126,8 @@ set termguicolors
 " colorscheme ayu
 " let g:gruvbox_material_background = 'hard'
 " colorscheme gruvbox-material
-colorscheme monokai_pro
+" colorscheme monokai_pro
+colorscheme zephyr
 
 let g:jedi#environment_path = "/opt/homebrew/bin/python3.9"
 let g:python3_host_prog = '/opt/homebrew/bin/python3.9'
