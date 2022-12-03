@@ -127,6 +127,7 @@ Plug 'folke/todo-comments.nvim'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'ranjithshegde/ccls.nvim'
 call plug#end()
 
 set termguicolors
@@ -350,8 +351,6 @@ cmp.setup({
       lspkind_comparator({
         kind_priority = {
           Field = 11,
-          Property = 11,
-          Constant = 10,
           Enum = 10,
           EnumMember = 10,
           Event = 10,
@@ -374,6 +373,8 @@ cmp.setup({
           TypeParameter = 1,
           Unit = 1,
           Value = 1,
+          Constant = 1,
+          Property = 1,
         },
       }),
       label_comparator,
@@ -417,6 +418,15 @@ nvim_lsp.tsserver.setup {
   cmd = { "typescript-language-server", "--stdio" },
   capabilities=capabilities
 }
+nvim_lsp.ccls.setup{
+  on_attach = on_attach,
+  capabilities=capabilities,
+}
+nvim_lsp.clangd.setup {
+  on_attach = on_attach,
+  capabilities=capabilities,
+}
+require("ccls").setup({lsp = {use_defaults = true}})
 EOF
 
 " Jump forward or backward
