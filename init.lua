@@ -168,6 +168,7 @@ local config = {
       -- ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
       -- quick save
       ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+      ["<C-\\>"] = { ":ToggleTerm<cr>" },
     },
     t = {
       -- setting a mapping to false will disable it
