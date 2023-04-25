@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+ln -s ./custom .config/nvim/lua/custom
 
-mkdir -p "$HOME/.config/nvim/lua/user"
-ln -s "$(pwd)/init.lua" "$HOME/.config/nvim/lua/user/init.lua"
