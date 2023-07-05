@@ -7,6 +7,7 @@ local autocmd = vim.api.nvim_create_autocmd
 -- })
 -- Remember las editing position
 autocmd("BufReadPost", {
-  command = [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]]
+	command = [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]],
 })
-vim.g.mapleader=","
+vim.g.mapleader = ","
+vim.wo.relativenumber = true
