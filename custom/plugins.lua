@@ -78,13 +78,13 @@ local plugins = {
 		"NvChad/nvim-colorizer.lua",
 	},
 	{
-    "github/copilot.vim",
+		"github/copilot.vim",
 		lazy = false,
-    config = function ()
-      vim.cmd(":Copilot setup")
-      vim.cmd('imap <silent><script><expr> <C-]> copilot#Accept("")')
-      vim.cmd("let g:copilot_no_tab_map = v:true")
-    end
+		config = function()
+			vim.cmd(":Copilot setup")
+			vim.cmd('imap <silent><script><expr> <C-]> copilot#Accept("")')
+			vim.cmd("let g:copilot_no_tab_map = v:true")
+		end,
 	},
 	{
 		"rcarriga/nvim-dap-ui",
@@ -146,6 +146,16 @@ local plugins = {
 				end, { "i", "s" }),
 			}),
 		},
+	},
+	{
+		"ibhagwan/smartyank.nvim",
+		lazy = false,
+		config = function()
+      require("smartyank").setup({
+        enable = true,
+        enable_visual = true,
+      })
+		end,
 	},
 }
 
