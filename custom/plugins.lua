@@ -73,15 +73,19 @@ local plugins = {
 			require("rust-tools").setup(opts)
 		end,
 	},
+  {
+    "skywind3000/asyncrun.vim",
+    lazy = false,
+  },
 	-- To make a plugin not be loaded
 	{
 		"NvChad/nvim-colorizer.lua",
 	},
 	{
 		"github/copilot.vim",
-		lazy = false,
+    event = "InsertEnter",
 		config = function()
-			vim.cmd(":Copilot setup")
+			vim.cmd(":AsyncRun! Copilot setup")
 			vim.cmd('imap <silent><script><expr> <C-]> copilot#Accept("")')
 			vim.cmd("let g:copilot_no_tab_map = v:true")
 		end,
