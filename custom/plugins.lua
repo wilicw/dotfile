@@ -73,17 +73,17 @@ local plugins = {
 			require("rust-tools").setup(opts)
 		end,
 	},
-  {
-    "skywind3000/asyncrun.vim",
-    lazy = false,
-  },
+	{
+		"skywind3000/asyncrun.vim",
+		lazy = false,
+	},
 	-- To make a plugin not be loaded
 	{
 		"NvChad/nvim-colorizer.lua",
 	},
 	{
 		"github/copilot.vim",
-    event = "InsertEnter",
+		event = "InsertEnter",
 		config = function()
 			vim.cmd(":AsyncRun! Copilot setup")
 			vim.cmd('imap <silent><script><expr> <C-]> copilot#Accept("")')
@@ -155,11 +155,17 @@ local plugins = {
 		"ibhagwan/smartyank.nvim",
 		lazy = false,
 		config = function()
-      require("smartyank").setup({
-        enable = true,
-        enable_visual = true,
-      })
+			require("smartyank").setup({
+				enable = true,
+				enable_visual = true,
+			})
 		end,
+	},
+	{
+		"folke/todo-comments.nvim",
+		lazy = false,
+		dependencies = "nvim-lua/plenary.nvim",
+		opts = {},
 	},
 }
 
