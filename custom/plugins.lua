@@ -167,10 +167,10 @@ local plugins = {
 		dependencies = "nvim-lua/plenary.nvim",
 		opts = {},
 	},
-  {
-    "vimpostor/vim-tpipeline",
-    lazy = false,
-  }
+	{
+		"vimpostor/vim-tpipeline",
+		lazy = false,
+	}
 }
 
 return plugins
