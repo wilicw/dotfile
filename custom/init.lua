@@ -9,5 +9,8 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd("BufReadPost", {
 	command = [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif]],
 })
+
 vim.g.mapleader = ","
 vim.wo.relativenumber = true
+vim.opt.cmdheight = 0
+vim.opt.scrolloff = 8

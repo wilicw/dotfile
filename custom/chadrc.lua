@@ -5,7 +5,14 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "rxyhn",
+  theme = "ayu-dark",
+  tabufline = {
+    enabled = false,
+  },
+
+  statusline = {
+    theme = "vscode",
+  },
 
   hl_override = highlights.override,
   hl_add = highlights.add,
