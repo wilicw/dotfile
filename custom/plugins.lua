@@ -96,6 +96,32 @@ local plugins = {
 		config = function()
 			require("dapui").setup()
 			local dap = require("dap")
+			require("nvim-dap-virtual-text").setup()
+
+			vim.api.nvim_set_hl(0, "red", { fg = "#e93b5b" })
+			vim.api.nvim_set_hl(0, "blue", { fg = "#3d59a1" })
+			vim.api.nvim_set_hl(0, "green", { fg = "#9ece6a" })
+
+			local codicons = require("codicons")
+			vim.fn.sign_define("DapBreakpoint", {
+				text = codicons.get("circle-filled", "icon"),
+				texthl = "red",
+				linehl = "DapBreakpoint",
+				numhl = "DapBreakpoint",
+			})
+			vim.fn.sign_define("DapBreakpointRejected", {
+				text = codicons.get("close", "icon"),
+				texthl = "blue",
+				linehl = "DapBreakpoint",
+				numhl = "DapBreakpoint",
+			})
+			vim.fn.sign_define("DapStopped", {
+				text = codicons.get("arrow-small-right", "icon"),
+				texthl = "green",
+				linehl = "DapStopped",
+				numhl = "DapStopped",
+			})
+
 			dap.adapters.cppdbg = {
 				id = "cppdbg",
 				type = "executable",
@@ -118,16 +144,26 @@ local plugins = {
 						return result
 					end,
 					stopAtEntry = true,
+					postRemoteConnectCommands = {
+						{
+							description = "Reset and halt target",
+							text = "monitor reset halt",
+							ignoreFailures = false,
+						},
+					},
 				},
 			}
 			dap.configurations.c = dap.configurations.cpp
 		end,
 		dependencies = {
 			"mfussenegger/nvim-dap",
+			"mortepau/codicons.nvim",
+			"theHamsta/nvim-dap-virtual-text",
 		},
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		event = "VeryLazy",
 		opts = {
 			mapping = cmp.mapping.preset.insert({
 				["<Up>"] = cmp.mapping.select_prev_item(),

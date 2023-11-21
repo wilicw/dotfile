@@ -4,16 +4,15 @@ local M = {}
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<C-b>"] = {
+    ["<leader>tb"] = {
       function()
         require'dap'.toggle_breakpoint()
       end,
       "toggle breakpoint",
     },
-    ["<F5>"] = {
+    ["<leader>db"] = {
       function()
         require'dapui'.toggle()
-        vim.cmd(':NvimTreeResize 45')
       end,
       "toggle dap-ui"
     }
