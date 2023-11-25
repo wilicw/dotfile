@@ -207,15 +207,15 @@ local plugins = {
 		"vimpostor/vim-tpipeline",
 		lazy = false,
 	},
-	{
-		"Shatur/neovim-ayu",
-		lazy = false,
-		config = function()
-			vim.api.nvim_create_autocmd({ "InsertEnter", "BufReadPre", "BufRead", "BufNew", "VimEnter" }, {
-				command = "colorscheme ayu",
-			})
-		end,
-	},
+	-- {
+	-- 	"Shatur/neovim-ayu",
+	-- 	lazy = false,
+	-- 	config = function()
+	-- 		vim.api.nvim_create_autocmd({ "InsertEnter", "BufReadPre", "BufRead", "BufNew", "VimEnter" }, {
+	-- 			command = ":colorscheme ayu",
+	-- 		})
+	-- 	end,
+	-- },
 }
 
 return plugins
