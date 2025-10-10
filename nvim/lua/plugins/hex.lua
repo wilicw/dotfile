@@ -1,0 +1,3 @@
+return {
+  { 'RaafatTurki/hex.nvim' }
+}
