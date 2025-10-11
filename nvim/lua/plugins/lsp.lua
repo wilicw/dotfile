@@ -39,7 +39,7 @@ return {
     opts = {},
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opt = {
       ensure_installed = {
         -- lua stuff

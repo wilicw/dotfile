@@ -17,7 +17,7 @@ return {
     enabled = false,
   },
   {
-    "echasnovski/mini.indentscope",
+    "nvim-mini/mini.indentscope",
     enabled = false,
   },
 }
