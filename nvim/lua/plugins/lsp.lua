@@ -5,32 +5,24 @@ return {
     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
   },
   {
-    "hrsh7th/nvim-cmp",
-    opts = function()
-      local cmp = require("cmp")
-      return {
-        mapping = cmp.mapping.preset.insert({
-          ["<Up>"] = cmp.mapping.select_prev_item(),
-          ["<Down>"] = cmp.mapping.select_next_item(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
-          ["<Tab>"] = cmp.mapping.confirm({ select = true }),
-          ["<C-j>"] = cmp.mapping(function(fallback)
-            if require("luasnip").jumpable(1) then
-              require("luasnip").jump(1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-          ["<C-k>"] = cmp.mapping(function(fallback)
-            if require("luasnip").jumpable(-1) then
-              require("luasnip").jump(-1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-        }),
-      }
-    end,
+    "saghen/blink.cmp",
+    opts = {
+      keymap = {
+        ["<Up>"] = { "select_prev", "fallback" },
+        ["<Down>"] = { "select_next", "fallback" },
+        ["<C-k>"] = { "select_prev", "fallback" },
+        ["<C-j>"] = { "select_next", "fallback" },
+        ["<Tab>"] = { "select_next", "fallback" },
+        ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
+        ["<C-n>"] = { "select_next", "fallback_to_mappings" },
+      },
+    },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = { enabled = false },
+    },
   },
   {
     "stevearc/conform.nvim",
@@ -43,13 +35,6 @@ return {
         -- lua stuff
         "lua-language-server",
         "stylua",
-
-        -- web dev stuff
-        "css-lsp",
-        "html-lsp",
-        "typescript-language-server",
-        "deno",
-        "prettier",
 
         -- c/cpp stuff
         "clangd",
